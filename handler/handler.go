@@ -12,7 +12,7 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/gorilla/mux"
+	"github.com/gorilla/mux" // npm route
 )
 
 // Function Route Home & Get Data
@@ -33,10 +33,10 @@ func HandleHome(w http.ResponseWriter, r *http.Request) { //ResponseWriter: untu
 		return
 	}
 
-	// // Panggil struct untuk menampung data dari database
+	// Panggil struct untuk menampung data dari database
 	var result []model.Project
 
-	// // Sebelum data ditampilkan looping terlebih dahulu
+	// Sebelum data ditampilkan looping terlebih dahulu
 	for dataProject.Next() {
 		var data = model.Project{}
 
@@ -136,8 +136,6 @@ func HandleAddProject(w http.ResponseWriter, r *http.Request) {
 	startDate := r.PostForm.Get("startDate")
 	endDate := r.PostForm.Get("endDate")
 	description := r.PostForm.Get("desc")
-	tech := r.Form["checkbox"]
-	fmt.Println("Tech :", tech)
 
 	// Buat array untuk menampung data checkbox
 	var checkboxs []string

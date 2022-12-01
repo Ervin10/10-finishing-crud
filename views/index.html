@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home</title>
     <link rel="icon" href="public/assets/img/logo.png">
-    <link rel="stylesheet" href="public/css/index.css">
+    <link rel="stylesheet" href="public/css/index1.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -21,16 +21,24 @@
             <li class="logo"><img src="public/assets/img/logo.png"></li>
             <li><a href="/" class="active">Home</a></li>
             <li><a href="/project" class="">My Project</a></li>
-            <li><a href="">About</a class></li>
-            <li class="liContact"><a href="/contact" class="aContact">Contact Me</a></li>
+            <div class="sub-navbar">
+                {{if .Login.IsLogin}}
+                <li class="register"><a href="">Hello, {{.Login.Name}} </a></li>
+                <li class="login"><a href="/logout">Logout</a></li>
+                {{else}}
+                <li class="register"><a href="/register">Register</a></li>
+                <li class="login"><a href="/login">Login</a></li>
+                {{end}}
+                <li class="liContact"><a href="/contact" class="aContact">Contact Me</a></li>
+            </div>
         </ul>
     </nav>
     <!-- End navbar -->
 
     <!-- Messade Box -->
-    {{if .pesan}}
-        <div class="message">{{.pesan}}</div>
-    {{end}}
+
+        <div class="message">aaa</div>
+   
     <!-- End message box --> 
 
     <!-- Content -->
